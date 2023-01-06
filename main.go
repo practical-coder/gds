@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"gds/order"
+)
 
 type Student struct {
 	ID   int
@@ -23,20 +26,10 @@ func main() {
 	filterFunc := func(item float64) bool {
 		return item < 16
 	}
-	filtered := GenFilter(floats, filterFunc)
+	filtered := order.Filter(floats, filterFunc)
 	fmt.Println(filtered)
 }
 
 func addStudent[T any](students []T, newStudent T) []T {
 	return append(students, newStudent)
-}
-
-func GenFilter[T any](input []T, f func(T) bool) []T {
-	results := make([]T, 0)
-	for _, item := range input {
-		if f(item) {
-			results = append(results, item)
-		}
-	}
-	return results
 }
