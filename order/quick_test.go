@@ -15,7 +15,7 @@ func TestQuicksort(t *testing.T) {
 		"Magda",
 		"Iza",
 	}
-	Quicksort[string](names, 0, len(names)-1)
+	Quick[string](names)
 	expected := []string{
 		"Asia",
 		"Basia",

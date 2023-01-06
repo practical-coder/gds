@@ -1,5 +1,8 @@
 package order
 
+func Quick[T Ordered](data []T) {
+	Quicksort[T](data, 0, len(data)-1)
+}
 func Quicksort[T Ordered](data []T, low, high int) {
 	if low < high {
 		pivot := partition(data, low, high)
