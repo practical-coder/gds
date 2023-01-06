@@ -20,9 +20,10 @@ func main() {
 	fmt.Println(structResults)
 
 	floats := []float64{14.1, 15.7, 16.3, 15.8, 83.2}
-	filtered := GenFilter(floats, func(item float64) bool {
+	filterFunc := func(item float64) bool {
 		return item < 16
-	})
+	}
+	filtered := GenFilter(floats, filterFunc)
 	fmt.Println(filtered)
 }
 
