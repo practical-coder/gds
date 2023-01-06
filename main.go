@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"gds/order"
 )
 
 type Student struct {
@@ -21,13 +20,6 @@ func main() {
 	structResults = addStudent(structResults, student)
 	fmt.Println(results)
 	fmt.Println(structResults)
-
-	floats := []float64{14.1, 15.7, 16.3, 15.8, 83.2}
-	filterFunc := func(item float64) bool {
-		return item < 16
-	}
-	filtered := order.Filter(floats, filterFunc)
-	fmt.Println(filtered)
 }
 
 func addStudent[T any](students []T, newStudent T) []T {
