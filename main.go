@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"gds/blackjack"
 )
 
 type Student struct {
@@ -10,6 +11,7 @@ type Student struct {
 }
 
 func main() {
+
 	students := []any{}
 	results := addStudent(students, "Jennifer")
 	results = addStudent(results, "Michael")
@@ -20,6 +22,8 @@ func main() {
 	structResults = addStudent(structResults, student)
 	fmt.Println(results)
 	fmt.Println(structResults)
+
+	blackjack.Play()
 }
 
 func addStudent[T any](students []T, newStudent T) []T {
