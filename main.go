@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gds/blackjack"
+	"gds/words"
 )
 
 type Student struct {
@@ -23,7 +23,8 @@ func main() {
 	fmt.Println(results)
 	fmt.Println(structResults)
 
-	blackjack.Play()
+	//blackjack.Play()
+	words.Permutations("parties")
 }
 
 func addStudent[T any](students []T, newStudent T) []T {
