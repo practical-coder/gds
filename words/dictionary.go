@@ -19,19 +19,17 @@ func alphabetize(word string) string {
 }
 
 func buildDictionary() {
-	dictionary := make(map[string][]string)
+	dictionary = make(map[string][]string)
 	txtwords := readWords("words/words.txt")
 	log.Info().Int("txtwords_count", len(txtwords)).Msg("txtwords slice size")
 	for _, word := range txtwords {
 		alphabetized := alphabetize(word)
-		var lst []string
-		if len(dictionary) > 0 && len(dictionary[alphabetized]) > 0 {
-			lst = dictionary[alphabetized]
+		if len(dictionary[alphabetized]) > 0 {
+			dictionary[alphabetized] = append(dictionary[alphabetized], word)
 		} else {
-			lst = []string{}
+			dictionary[alphabetized] = []string{word}
 		}
-		lst = append(lst, word)
-		dictionary[alphabetized] = lst
+
 	}
 }
 
@@ -57,5 +55,5 @@ func readWords(fName string) []string {
 func Permutations(word string) {
 	buildDictionary()
 	aw := alphabetize(word)
-	fmt.Printf("Permutation group of %s is %s", word, dictionary[aw])
+	fmt.Printf("Permutation group of %s is %#v\n", word, dictionary[aw])
 }

@@ -24,7 +24,7 @@ func main() {
 	fmt.Println(structResults)
 
 	//blackjack.Play()
-	words.Permutations("parties")
+	words.Permutations("pirates")
 }
 
 func addStudent[T any](students []T, newStudent T) []T {
